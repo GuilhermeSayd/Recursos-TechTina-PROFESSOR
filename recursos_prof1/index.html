@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Sistema de Reserva de Recursos</title>
+
+  <link rel="stylesheet" href="style.css" />
+  <script defer src="script.js"></script>
+</head>
+
+<body>
+  <header>
+    <div class="container navPrincipal">
+      <div class="marcaSistema">
+        <div class="logoSistema">&#128274;</div>
+        <h1>Sistema de Reserva de Recursos</h1>
+      </div>
+
+      <div class="acoesNav">
+        <a class="botao" href="#secLogin">Entrar</a>
+        <a class="botao botaoPrimario" href="#secPesquisa">Nova Reserva</a>
+      </div>
+    </div>
+  </header>
+
+  <main class="container">
+    <!-- ====== Seção de destaque ====== -->
+    <section class="secaoHero">
+      <div class="cartaoHero">
+        <span class="selo">&#129513; Entidades: Usuário • Recurso • Reserva</span>
+        <h2>Reserve recursos de forma simples e rápida</h2>
+        <p class="textoMutado">
+          Selecione o <strong>recurso</strong>, escolha <strong>data/horário</strong> e confirme.
+          Depois, acompanhe suas <strong>reservas</strong> na área do usuário.
+        </p>
+
+        <!-- Formulário rápido (demonstração visual) -->
+        <form class="formRapido" data-obsoleto="true">
+          <select name="recurso">
+            <option value="">— Selecione o recurso —</option>
+            <option>Laboratório 01</option>
+            <option>Laboratório 02</option>
+            <option>Projetor 4K</option>
+            <option>Espaço de Reuniões</option>
