@@ -1,0 +1,186 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>TechTina — Sistema de Pedidos da Cantina</title>
+  <link rel="stylesheet" href="style.css">
+  <script defer src="script.js"></script>
+</head>
+<body>
+  <header>
+    <div class="container navPrincipal">
+      <div class="marcaSistema">
+        <div class="logoSistema">🥪</div>
+        <h1>TechTina — Sistema de Pedidos da Cantina</h1>
+      </div>
+
+      <div class="acoesNav">
+        <a class="botao" href="#secLogin">Entrar</a>
+        <a class="botao botaoPrimario" href="#secPesquisa">Novo Pedido</a>
+      </div>
+    </div>
+  </header>
+
+  <main class="container">
+    <section class="secaoHero">
+      <div class="cartaoHero">
+        <span class="selo">🍊 Equipe TechTina: Bernardo, Guilherme, Izadora, Pedro e Rafaela</span>
+        <h2>Peça seus lanches de forma rápida e prática</h2>
+        <p class="textoMutado">
+          Faça login, escolha seu <strong>lanche</strong>, selecione o <strong>horário de retirada</strong> e acompanhe seu pedido em tempo real!
+        </p>
+
+        <form class="formRapido" data-obsoleto="true">
+          <select name="recurso">
+            <option value="">— Escolha seu lanche —</option>
+            <option>Pão de queijo</option>
+            <option>Coxinha</option>
+            <option>Sanduíche natural</option>
+            <option>Suco de laranja</option>
+            <option>Refrigerante</option>
+          </select>
+          <input class="entrada" name="data" type="date" placeholder="Data">
+          <input class="entrada" name="inicio" type="time" placeholder="Início">
+          <input class="entrada" name="fim" type="time" placeholder="Fim">
+          <button class="botao botaoPrimario" type="submit">Fazer Pedido</button>
+        </form>
+      </div>
+
+     <div class="cartaoHero">
+  <h3>Status do sistema — TechTina BETA v1.2</h3>
+  <p class="textoMutado">Ambiente <strong>DEMO</strong>. Em breve com integração real de estoque e pagamentos.</p>
+  <ul class="textoMutado">
+    <li>🥐 Login e pedidos ativos</li>
+    <li>🍰 Cadastro de novos clientes funcionando</li>
+    <li>🥤 Histórico de pedidos em tempo real</li>
+    <li>🍎 Sistema de feedback via notificações (toast)</li>
+    <li>🥪 Interface temática de cantina — cores e estilo atualizados</li>
+    <li>☕ Armazenamento local com data e horário dos pedidos</li>
+    <li>🍊 Equipe TechTina conectada: <strong>Bernardo, Guilherme, Izadora, Pedro e Rafaela</strong></li>
+  </ul>
+
+  <h4 class="textoMutado" style="margin-top: 1em;">🧃 Próximas etapas:</h4>
+  <ul class="textoMutado">
+    <li>📦 Integração com <strong>banco de dados MySQL</strong> (pedidos, estoque e clientes)</li>
+    <li>📊 Dashboard administrativo para <strong>controle de vendas e produtos</strong></li>
+    <li>💳 Sistema de <strong>pagamentos simulados</strong> (Pix e Cartão)</li>
+    <li>🍩 Gráficos de <strong>desempenho diário e semanal</strong> das vendas</li>
+    <li>🔐 Login seguro com <strong>criptografia e sessão persistente</strong></li>
+    <li>🧑‍💻 Controle de <strong>permissões</strong> (cliente / administrador)</li>
+    <li>📱 Integração com <strong>API de cardápio digital</strong></li>
+    <li>🥗 Otimização para <strong>mobile (modo “Cantina Pocket”)</strong></li>
+  </ul>
+</div>
+
+    </section>
+
+    <section class="gradeEntidades">
+      <article class="cartao">
+        <h3>Cliente</h3>
+        <p class="textoMutado">Cadastro, login e acompanhamento de pedidos realizados na cantina.</p>
+      </article>
+      <article class="cartao">
+        <h3>Lanche</h3>
+        <p class="textoMutado">Cardápio da cantina com opções variadas e disponibilidade por horário.</p>
+      </article>
+      <article class="cartao">
+        <h3>Pedido</h3>
+        <p class="textoMutado">Criação, confirmação e cancelamento com controle de tempo e status.</p>
+      </article>
+    </section>
+
+    <!-- LOGIN -->
+    <section id="secLogin" class="cartao" aria-labelledby="titLogin">
+      <h2 id="titLogin">Acesso ao Sistema</h2>
+      <form id="formLogin" class="grade">
+        <label>
+          Usuário
+          <input id="campoUsuario" name="usuario" autocomplete="username" required>
+        </label>
+        <label>
+          Senha
+          <input id="campoSenha" name="senha" type="password" autocomplete="current-password" required>
+        </label>
+        <button class="botao botaoPrimario" type="submit">Entrar</button>
+        <p class="textoMutado">Dica: qualquer nome e senha com 3+ caracteres funcionam (simulação).</p>
+      </form>
+    </section>
+
+    <!-- PESQUISA DE LANCHES -->
+    <section id="secPesquisa" class="cartao" aria-labelledby="titPesquisa">
+      <h2 id="titPesquisa">Escolher lanche e horário</h2>
+      <form id="formPesquisa" class="grade duas">
+        <label>
+          Lanche
+          <select id="campoRecurso" name="recurso" required>
+            <option value="">Selecione...</option>
+            <option>Pão de queijo</option>
+            <option>Coxinha</option>
+            <option>Sanduíche natural</option>
+            <option>Suco de laranja</option>
+            <option>Refrigerante</option>
+          </select>
+        </label>
+        <label>
+          Data
+          <input id="campoData" name="data" type="date" required>
+        </label>
+        <label>
+          Horário
+          <input id="campoHora" name="hora" type="time" required>
+        </label>
+        <button class="botao botaoPrimario" type="submit">Pesquisar disponibilidade</button>
+      </form>
+    </section>
+
+    <!-- SOLICITAÇÃO -->
+    <section id="secSolicitar" class="cartao" aria-labelledby="titSolicitar">
+      <h2 id="titSolicitar">Confirmar pedido</h2>
+      <form id="formSolicitar" class="grade">
+        <label>
+          Observações
+          <input id="campoJustificativa" name="justificativa" placeholder="Ex: sem maionese, bebida gelada..." required>
+        </label>
+        <button class="botao botaoPrimario" type="submit">Finalizar Pedido</button>
+      </form>
+      <p class="textoMutado">Pedidos de funcionários (contendo “prof”) são aprovados automaticamente.</p>
+    </section>
+
+    <!-- HISTÓRICO -->
+    <section id="secHistorico" class="cartao" aria-labelledby="titHistorico">
+      <h2 id="titHistorico">Meus pedidos</h2>
+      <ul id="listaReservas" class="lista" aria-live="polite"></ul>
+    </section>
+
+    <footer>
+      <div class="container">
+        <small class="textoMutado">
+          🍊 TechTina — Sistema de Pedidos da Cantina Escolar · Sprint 2 · Login → Escolha → Pedido → Histórico
+        </small>
+      </div>
+    </footer>
+  </main>
+
+  <!-- Dialog antigo (mantido para compatibilidade visual) -->
+  <dialog id="modalLogin">
+    <div class="conteudoModal">
+      <header>
+        <h3>Entrar</h3>
+        <p class="textoMutado">Protótipo visual — autenticação real em versão futura.</p>
+      </header>
+      <form method="dialog">
+        <input class="entrada" type="email" placeholder="E-mail" required>
+        <input class="entrada" type="password" placeholder="Senha" required>
+        <div style="display:flex; gap:10px; justify-content:flex-end">
+          <button class="botao" value="cancelar">Cancelar</button>
+          <button class="botao botaoPrimario" value="entrar">Entrar</button>
+        </div>
+      </form>
+    </div>
+  </dialog>
+
+  <!-- Toast -->
+  <div id="toast" class="toast" role="status" aria-live="polite" aria-atomic="true"></div>
+</body>
+</html>

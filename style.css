@@ -1,0 +1,337 @@
+/* =========================
+   Cantina TechTina 🍊 – 3DS
+   Equipe: Bernardo Rodrigues, Guilherme Sayd,
+   Pedro Portela, Izadora Rodrigues e Rafaela Kotula
+   ========================= */
+
+/* --- VARIÁVEIS DE COR --- */
+:root {
+  --verde: #2e8b57;
+  --verde-claro: #4dbd73;
+  --laranja: #f97316;
+  --laranja-claro: #ffb366;
+  --creme: #fffaf3;
+  --branco: #ffffff;
+  --cinza: #555;
+  --sombra: rgba(0, 0, 0, 0.1);
+}
+
+/* --- REGRAS GERAIS --- */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: "Poppins", Arial, sans-serif;
+}
+
+body {
+  background: linear-gradient(180deg, var(--creme) 0%, #fff 100%);
+  color: var(--cinza);
+  line-height: 1.6;
+  min-height: 100vh;
+}
+
+/* --- CABEÇALHO --- */
+header {
+  background: var(--branco);
+  border-bottom: 4px solid var(--laranja);
+  box-shadow: 0 3px 10px var(--sombra);
+  padding: 0.8rem 0;
+  position: sticky;
+  top: 0;
+  z-index: 1000;
+}
+
+header .container {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  width: 90%;
+  margin: auto;
+}
+
+.marcaSistema {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.marcaSistema .logoSistema {
+  font-size: 1.6rem;
+  background: var(--laranja);
+  color: var(--branco);
+  border-radius: 50%;
+  width: 35px;
+  height: 35px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+header h1 {
+  color: var(--verde);
+  font-size: 1.3rem;
+  font-weight: 700;
+}
+
+.acoesNav a {
+  text-decoration: none;
+  padding: 0.6rem 1.1rem;
+  border-radius: 25px;
+  font-weight: 600;
+  transition: 0.3s ease;
+  border: 2px solid transparent;
+}
+
+.acoesNav .botao {
+  color: var(--verde);
+  border-color: var(--verde);
+}
+
+.acoesNav .botao:hover {
+  background: var(--verde);
+  color: var(--branco);
+}
+
+.acoesNav .botaoPrimario {
+  background: var(--laranja);
+  color: var(--branco);
+}
+
+.acoesNav .botaoPrimario:hover {
+  background: var(--laranja-claro);
+}
+
+/* --- CONTEÚDO PRINCIPAL --- */
+main.container {
+  width: 90%;
+  margin: 2rem auto;
+}
+
+/* --- CARTÕES --- */
+.cartao,
+.cartaoHero {
+  background: var(--branco);
+  border-radius: 15px;
+  box-shadow: 0 4px 12px var(--sombra);
+  padding: 1.5rem;
+  margin-bottom: 1.5rem;
+  transition: 0.3s ease;
+}
+
+.cartao:hover,
+.cartaoHero:hover {
+  transform: scale(1.01);
+}
+
+.cartaoHero {
+  flex: 1;
+}
+
+.secaoHero {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 2rem;
+}
+
+.selo {
+  background: var(--laranja-claro);
+  color: var(--branco);
+  padding: 0.3rem 0.8rem;
+  border-radius: 20px;
+  font-size: 0.85rem;
+  font-weight: 600;
+}
+
+h2,
+h3 {
+  color: var(--verde);
+  margin-bottom: 0.8rem;
+}
+
+.textoMutado {
+  color: #777;
+  font-size: 0.95rem;
+}
+
+/* --- FORMULÁRIOS --- */
+form {
+  display: flex;
+  flex-direction: column;
+  gap: 0.8rem;
+  margin-top: 0.5rem;
+}
+
+label {
+  font-weight: 600;
+  color: var(--verde);
+}
+
+input,
+select,
+textarea {
+  border: 2px solid #e0e0e0;
+  border-radius: 8px;
+  padding: 0.6rem;
+  font-size: 1rem;
+  transition: 0.2s ease;
+  background: #fffdf8;
+}
+
+input:focus,
+select:focus,
+textarea:focus {
+  border-color: var(--laranja);
+  outline: none;
+  background: #fff9f2;
+}
+
+/* --- BOTÕES --- */
+.botao,
+button {
+  border: none;
+  border-radius: 25px;
+  padding: 0.7rem 1.4rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.botaoPrimario,
+button[type="submit"] {
+  background: linear-gradient(90deg, var(--laranja) 0%, var(--verde) 100%);
+  color: var(--branco);
+}
+
+.botaoPrimario:hover,
+button[type="submit"]:hover {
+  opacity: 0.9;
+  transform: scale(1.02);
+}
+
+button {
+  background: var(--verde);
+  color: var(--branco);
+}
+
+button:hover {
+  background: var(--verde-claro);
+}
+
+/* --- GRADE ENTIDADES --- */
+.gradeEntidades {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  gap: 1rem;
+}
+
+.gradeEntidades .cartao {
+  border-top: 5px solid var(--laranja);
+}
+
+/* --- HISTÓRICO --- */
+#listaReservas {
+  list-style: none;
+  padding: 0;
+  margin-top: 1rem;
+}
+
+#listaReservas li {
+  background: #fdfdfd;
+  border-left: 5px solid var(--verde);
+  padding: 0.8rem;
+  border-radius: 10px;
+  margin-bottom: 0.6rem;
+  box-shadow: 0 2px 6px var(--sombra);
+}
+
+/* --- FOOTER --- */
+footer {
+  text-align: center;
+  padding: 1rem;
+  margin-top: 2rem;
+  border-top: 3px dashed var(--laranja);
+  color: #777;
+  background: var(--branco);
+}
+
+/* --- TOAST --- */
+.toast {
+  position: fixed;
+  bottom: 20px;
+  right: 20px;
+  background: var(--verde);
+  color: var(--branco);
+  padding: 0.8rem 1.2rem;
+  border-radius: 8px;
+  box-shadow: 0 2px 8px var(--sombra);
+  display: none;
+}
+
+/* ===========================
+   TOAST — Sistema de Feedback
+   TechTina 🍊💚
+   =========================== */
+.toast {
+  position: fixed;
+  bottom: 25px;
+  right: 25px;
+  background: #ff7a00; /* laranja base */
+  color: #fff;
+  padding: 14px 20px;
+  border-radius: 12px;
+  font-weight: 600;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+  opacity: 0;
+  transform: translateY(20px);
+  transition: opacity 0.4s ease, transform 0.4s ease;
+  z-index: 9999;
+  pointer-events: none;
+}
+
+.toast.visivel {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* Tipos de toast */
+.toast.ok {
+  background: #ff7a00; /* laranja vibrante */
+}
+
+.toast.warn {
+  background: #fbc02d; /* amarelo alerta */
+  color: #000;
+}
+
+.toast.err {
+  background: #e53935; /* vermelho erro */
+  color: #fff;
+}
+
+/* Efeito visual de contorno */
+.toast::before {
+  content: "🍊 ";
+}
+
+@media (max-width: 600px) {
+  .toast {
+    bottom: 15px;
+    right: 15px;
+    font-size: 0.9rem;
+    padding: 10px 15px;
+  }
+}
+
+
+/* --- RESPONSIVIDADE --- */
+@media (max-width: 768px) {
+  header .container {
+    flex-direction: column;
+    gap: 1rem;
+  }
+
+  .secaoHero {
+    flex-direction: column;
+  }
+}
