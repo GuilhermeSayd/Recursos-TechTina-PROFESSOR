@@ -10,11 +10,15 @@
    Usa <div id="toast" role="status" aria-live="polite"> no HTML.
    =========================================== */
 // ALTERAÇÃO SPRINT 2: utilitário de toast
-const $toast = document.getElementById('toast');
+// const $toast = document.getElementById('toast');
+let $toast = null; // será atribuído após o DOM carregar
 //$ para indicar que variavel vem do DOM
 let __toastTimer = null;
 //__para indicar que é uma variável interna
 function mostrarToast(mensagem, tipo = 'ok') {
+  // garantir lookup se ainda não atribuída (caso script carregue antes do DOM)
+  if (!$toast) $toast = document.getElementById('toast');
+
   // fallback se #toast não existir (ambiente antigo)
   if (!$toast) { 
     alert(mensagem); 
