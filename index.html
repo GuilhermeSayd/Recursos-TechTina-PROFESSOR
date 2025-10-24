@@ -31,14 +31,24 @@
           Faça login, escolha seu <strong>lanche</strong>, selecione o <strong>horário de retirada</strong> e acompanhe seu pedido em tempo real!
         </p>
 
+        <section id="avisosCantina" class="avisos-cantina">
+  <h2>📢 Avisos Importantes da Cantina</h2>
+  <ul id="listaAvisos"></ul>
+</section>
+
+
         <form class="formRapido" data-obsoleto="true">
           <select name="recurso">
             <option value="">— Escolha seu lanche —</option>
             <option>Pão de queijo</option>
             <option>Coxinha</option>
-            <option>Sanduíche natural</option>
+            <option>Sanduíche natural de presunto</option>
             <option>Suco de laranja</option>
-            <option>Refrigerante</option>
+            <option>Guaraná Pequeno</option>
+            <option>Pure de Batata</option>
+            <option>Strogonocoff</option>
+            <option>Bãuru</option>
+            <option>Coca-Cola</option>
           </select>
           <input class="entrada" name="data" type="date" placeholder="Data">
           <input class="entrada" name="inicio" type="time" placeholder="Início">
@@ -114,17 +124,22 @@
         <label>
           Lanche
           <select id="campoRecurso" name="recurso" required>
-            <option value="">Selecione...</option>
+            <option value="">— Escolha seu lanche —</option>
             <option>Pão de queijo</option>
             <option>Coxinha</option>
-            <option>Sanduíche natural</option>
+            <option>Sanduíche natural de presunto</option>
             <option>Suco de laranja</option>
-            <option>Refrigerante</option>
+            <option>Guaraná Pequeno</option>
+            <option>Pure de Batata</option>
+            <option>Strogonocoff</option>
+            <option>Bãuru</option>
+            <option>Coca-Cola</option>
           </select>
         </label>
         <label>
           Data
           <input id="campoData" name="data" type="date" required>
+          <input type="date" id="dataPedido" required>
         </label>
         <label>
           Horário
@@ -144,7 +159,7 @@
         </label>
         <button class="botao botaoPrimario" type="submit">Finalizar Pedido</button>
       </form>
-      <p class="textoMutado">Pedidos de funcionários (contendo “prof”) são aprovados automaticamente.</p>
+      <p class="textoMutado">Pedidos de funcionários (contendo “Tio/Tia) são aprovados automaticamente.</p>
     </section>
 
     <!-- HISTÓRICO -->

@@ -108,6 +108,45 @@ main.container {
   margin: 2rem auto;
 }
 
+.avisos-cantina {
+  background-color: #fffaf2;
+  border: 2px solid #ff9d00;
+  border-radius: 12px;
+  padding: 20px;
+  margin: 30px auto;
+  max-width: 700px;
+  box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+}
+
+.avisos-cantina h2 {
+  color: #ff6f00;
+  text-align: center;
+  font-size: 1.6rem;
+  margin-bottom: 15px;
+}
+
+.avisos-cantina ul {
+  list-style: none;
+  padding: 0;
+}
+
+.avisos-cantina li {
+  background-color: #fff5e6;
+  border-left: 6px solid #4caf50;
+  padding: 10px 14px;
+  margin-bottom: 8px;
+  border-radius: 8px;
+  font-weight: 500;
+  color: #333;
+  transition: transform 0.2s ease;
+}
+
+.avisos-cantina li:hover {
+  transform: scale(1.02);
+  background-color: #fff0d9;
+}
+
+
 /* --- CARTÕES --- */
 .cartao,
 .cartaoHero {
@@ -272,47 +311,57 @@ footer {
    TOAST — Sistema de Feedback
    TechTina 🍊💚
    =========================== */
-.toast {
+
+#toast {
   position: fixed;
-  bottom: 25px;
-  right: 25px;
-  background: #ff7a00; /* laranja base */
-  color: #fff;
-  padding: 14px 20px;
-  border-radius: 12px;
+  left: 50%;
+  bottom: 24px;
+  transform: translateX(-50%) translateY(20px);
+  background: var(--verde);
+  color: var(--branco);
+  padding: 12px 22px;
+  border-radius: 10px;
   font-weight: 600;
-  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+  font-size: 0.95rem;
+  box-shadow: 0 4px 10px rgba(0,0,0,0.25);
   opacity: 0;
-  transform: translateY(20px);
-  transition: opacity 0.4s ease, transform 0.4s ease;
-  z-index: 9999;
   pointer-events: none;
+  transition: opacity 0.28s ease, transform 0.28s ease;
+  z-index: 9999;
 }
 
-.toast.visivel {
+#toast.visivel {
   opacity: 1;
-  transform: translateY(0);
+  transform: translateX(-50%) translateY(0);
+  pointer-events: auto;
 }
 
-/* Tipos de toast */
-.toast.ok {
-  background: #ff7a00; /* laranja vibrante */
+/* Cores de feedback */
+#toast.ok {
+  background: linear-gradient(90deg, var(--laranja) 0%, var(--verde) 100%);
+  color: var(--branco);
 }
 
-.toast.warn {
-  background: #fbc02d; /* amarelo alerta */
+#toast.warn {
+  background: #ffb74d;
   color: #000;
 }
 
-.toast.err {
-  background: #e53935; /* vermelho erro */
+#toast.err {
+  background: #e53935;
   color: #fff;
 }
 
-/* Efeito visual de contorno */
-.toast::before {
-  content: "🍊 ";
+/* Responsividade */
+@media (max-width: 600px) {
+  #toast {
+    bottom: 15px;
+    font-size: 0.85rem;
+    padding: 10px 18px;
+  }
 }
+
+
 
 @media (max-width: 600px) {
   .toast {
