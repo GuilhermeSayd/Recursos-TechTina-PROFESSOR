@@ -1,12 +1,16 @@
 <!DOCTYPE html>
 <html lang="pt-br">
+
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>TechTina — Sistema de Pedidos da Cantina</title>
   <link rel="stylesheet" href="style.css">
   <script defer src="script.js"></script>
+  <script defer src="api.js"></script>
+  <script defer src="dashboard.js"></script>
 </head>
+
 <body>
   <header>
     <div class="container navPrincipal">
@@ -28,14 +32,14 @@
         <span class="selo">🍊 Equipe TechTina: Bernardo, Guilherme, Izadora, Pedro e Rafaela</span>
         <h2>Peça seus lanches de forma rápida e prática</h2>
         <p class="textoMutado">
-          Faça login, escolha seu <strong>lanche</strong>, selecione o <strong>horário de retirada</strong> e acompanhe seu pedido em tempo real!
+          Faça login, escolha seu <strong>lanche</strong>, selecione o <strong>horário de retirada</strong> e acompanhe
+          seu pedido em tempo real!
         </p>
 
         <section id="avisosCantina" class="avisos-cantina">
-  <h2>📢 Avisos Importantes da Cantina</h2>
-  <ul id="listaAvisos"></ul>
-</section>
-
+          <h2>📢 Avisos Importantes da Cantina</h2>
+          <ul id="listaAvisos"></ul>
+        </section>
 
         <form class="formRapido" data-obsoleto="true">
           <select name="recurso">
@@ -46,8 +50,8 @@
             <option>Suco de laranja</option>
             <option>Guaraná Pequeno</option>
             <option>Pure de Batata</option>
-            <option>Strogonocoff</option>
-            <option>Bãuru</option>
+            <option>Strogonoff</option>
+            <option>Bauru</option>
             <option>Coca-Cola</option>
           </select>
           <input class="entrada" name="data" type="date" placeholder="Data">
@@ -57,32 +61,40 @@
         </form>
       </div>
 
-     <div class="cartaoHero">
-  <h3>Status do sistema — TechTina BETA v1.2</h3>
-  <p class="textoMutado">Ambiente <strong>DEMO</strong>. Em breve com integração real de estoque e pagamentos.</p>
-  <ul class="textoMutado">
-    <li>🥐 Login e pedidos ativos</li>
-    <li>🍰 Cadastro de novos clientes funcionando</li>
-    <li>🥤 Histórico de pedidos em tempo real</li>
-    <li>🍎 Sistema de feedback via notificações (toast)</li>
-    <li>🥪 Interface temática de cantina — cores e estilo atualizados</li>
-    <li>☕ Armazenamento local com data e horário dos pedidos</li>
-    <li>🍊 Equipe TechTina conectada: <strong>Bernardo, Guilherme, Izadora, Pedro e Rafaela</strong></li>
-  </ul>
+      <div class="cartaoHero">
+        <h3>Status do sistema — TechTina BETA v2.0</h3>
+        <p class="textoMutado">Ambiente <strong>DEMO</strong>. Em breve com integração real de estoque e pagamentos.</p>
+        <ul class="textoMutado">
+          <li>✅ <strong>Login e pedidos ativos</strong> — Sistema completo de autenticação</li>
+          <li>✅ <strong>Cadastro de novos clientes funcionando</strong> — Simulação de usuários</li>
+          <li>✅ <strong>Histórico de pedidos em tempo real</strong> — Acompanhamento dinâmico</li>
+          <li>✅ <strong>Sistema de feedback via notificações (toast)</strong> — Alertas visuais</li>
+          <li>✅ <strong>Interface temática de cantina</strong> — Cores e estilo atualizados</li>
+          <li>✅ <strong>Armazenamento local</strong> — Data e horário dos pedidos</li>
+          <li>🆕 <strong>Sistema de reservas completo</strong> — Pesquisa, solicitação e cancelamento</li>
+          <li>🆕 <strong>Validação de datas e horários</strong> — Feriados e finais de semana</li>
+          <li>🆕 <strong>Persistência de sessão</strong> — Login mantido entre refreshes</li>
+          <li>🆕 <strong>Interface responsiva moderna</strong> — Design mobile-friendly</li>
+          <li>🆕 <strong>Sistema de status de pedidos</strong> — Aprovado, pendente, cancelado</li>
+          <li>🆕 <strong>Validação de horário comercial</strong> — 7h às 18h</li>
+          <li>🍊 <strong>Equipe TechTina conectada</strong>: Bernardo, Guilherme, Izadora, Pedro e Rafaela</li>
+        </ul>
 
-  <h4 class="textoMutado" style="margin-top: 1em;">🧃 Próximas etapas:</h4>
-  <ul class="textoMutado">
-    <li>📦 Integração com <strong>banco de dados MySQL</strong> (pedidos, estoque e clientes)</li>
-    <li>📊 Dashboard administrativo para <strong>controle de vendas e produtos</strong></li>
-    <li>💳 Sistema de <strong>pagamentos simulados</strong> (Pix e Cartão)</li>
-    <li>🍩 Gráficos de <strong>desempenho diário e semanal</strong> das vendas</li>
-    <li>🔐 Login seguro com <strong>criptografia e sessão persistente</strong></li>
-    <li>🧑‍💻 Controle de <strong>permissões</strong> (cliente / administrador)</li>
-    <li>📱 Integração com <strong>API de cardápio digital</strong></li>
-    <li>🥗 Otimização para <strong>mobile (modo “Cantina Pocket”)</strong></li>
-  </ul>
-</div>
-
+        <h4 class="textoMutado" style="margin-top: 1em;">🧃 Próximas etapas:</h4>
+        <ul class="textoMutado">
+          <li>📦 Integração com <strong>banco de dados MySQL</strong> (pedidos, estoque e clientes)</li>
+          <li>📊 Dashboard administrativo para <strong>controle de vendas e produtos</strong></li>
+          <li>💳 Sistema de <strong>pagamentos simulados</strong> (Pix e Cartão)</li>
+          <li>🍩 Gráficos de <strong>desempenho diário e semanal</strong> das vendas</li>
+          <li>🔐 Login seguro com <strong>criptografia e sessão persistente</strong></li>
+          <li>🧑‍💻 Controle de <strong>permissões</strong> (cliente / administrador)</li>
+          <li>📱 Integração com <strong>API de cardápio digital</strong></li>
+          <li>🥗 Otimização para <strong>mobile (modo "Cantina Pocket")</strong></li>
+          <li>🔔 <strong>Sistema de notificações push</strong> — Alertas em tempo real</li>
+          <li>📋 <strong>Relatórios administrativos</strong> — Analytics de vendas</li>
+          <li>🔄 <strong>Sincronização em nuvem</strong> — Backup automático</li>
+        </ul>
+      </div>
     </section>
 
     <section class="gradeEntidades">
@@ -131,15 +143,14 @@
             <option>Suco de laranja</option>
             <option>Guaraná Pequeno</option>
             <option>Pure de Batata</option>
-            <option>Strogonocoff</option>
-            <option>Bãuru</option>
+            <option>Strogonoff</option>
+            <option>Bauru</option>
             <option>Coca-Cola</option>
           </select>
         </label>
         <label>
           Data
           <input id="campoData" name="data" type="date" required>
-          <input type="date" id="dataPedido" required>
         </label>
         <label>
           Horário
@@ -159,13 +170,62 @@
         </label>
         <button class="botao botaoPrimario" type="submit">Finalizar Pedido</button>
       </form>
-      <p class="textoMutado">Pedidos de funcionários (contendo “Tio/Tia) são aprovados automaticamente.</p>
+      <p class="textoMutado">Pedidos de funcionários (contendo "Tio/Tia") são aprovados automaticamente.</p>
     </section>
 
     <!-- HISTÓRICO -->
     <section id="secHistorico" class="cartao" aria-labelledby="titHistorico">
       <h2 id="titHistorico">Meus pedidos</h2>
       <ul id="listaReservas" class="lista" aria-live="polite"></ul>
+    </section>
+
+    <!-- DASHBOARD -->
+    <section id="secDashboard" class="cartao" aria-labelledby="titDashboard" style="display: none;">
+      <h2 id="titDashboard">📊 Dashboard Administrativo</h2>
+      
+      <div class="dashboard-grid">
+        <div class="metrica-card">
+          <div class="metrica-icon">📈</div>
+          <div class="metrica-info">
+            <h3>Pedidos Hoje</h3>
+            <span class="metrica-valor" id="pedidosHoje">0</span>
+            <span class="metrica-variacao positiva">+0%</span>
+          </div>
+        </div>
+        
+        <div class="metrica-card">
+          <div class="metrica-icon">💰</div>
+          <div class="metrica-info">
+            <h3>Receita Total</h3>
+            <span class="metrica-valor" id="receitaTotal">R$ 0,00</span>
+            <span class="metrica-variacao">Hoje</span>
+          </div>
+        </div>
+        
+        <div class="metrica-card">
+          <div class="metrica-icon">⏳</div>
+          <div class="metrica-info">
+            <h3>Pendentes</h3>
+            <span class="metrica-valor" id="pedidosPendentes">0</span>
+            <span class="metrica-variacao negativa">Aprovar</span>
+          </div>
+        </div>
+      </div>
+
+      <div class="dashboard-acoes">
+        <h3>Ações Rápidas</h3>
+        <div class="acoes-grid">
+          <button class="botao acao-btn" onclick="Dashboard.verPedidosPendentes()">
+            📋 Ver Pedidos Pendentes
+          </button>
+          <button class="botao acao-btn" onclick="Dashboard.gerenciarCardapio()">
+            🍽️ Gerenciar Cardápio
+          </button>
+          <button class="botao acao-btn" onclick="Dashboard.gerarRelatorio()">
+            📊 Gerar Relatório
+          </button>
+        </div>
+      </div>
     </section>
 
     <footer>
@@ -177,7 +237,6 @@
     </footer>
   </main>
 
-  <!-- Dialog antigo (mantido para compatibilidade visual) -->
   <dialog id="modalLogin">
     <div class="conteudoModal">
       <header>

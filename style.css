@@ -102,6 +102,12 @@ header h1 {
   background: var(--laranja-claro);
 }
 
+/* Menu ativo */
+.acoesNav a.ativo {
+  background: linear-gradient(90deg, var(--laranja) 0%, var(--verde) 100%);
+  color: white;
+}
+
 /* --- CONTEÚDO PRINCIPAL --- */
 main.container {
   width: 90%;
@@ -115,7 +121,7 @@ main.container {
   padding: 20px;
   margin: 30px auto;
   max-width: 700px;
-  box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
 }
 
 .avisos-cantina h2 {
@@ -145,7 +151,6 @@ main.container {
   transform: scale(1.02);
   background-color: #fff0d9;
 }
-
 
 /* --- CARTÕES --- */
 .cartao,
@@ -225,6 +230,13 @@ textarea:focus {
   background: #fff9f2;
 }
 
+/* Estados de formulário */
+input[aria-invalid="true"],
+select[aria-invalid="true"] {
+  border-color: #e53935 !important;
+  background: #fff5f5 !important;
+}
+
 /* --- BOTÕES --- */
 .botao,
 button {
@@ -268,43 +280,260 @@ button:hover {
   border-top: 5px solid var(--laranja);
 }
 
-/* --- HISTÓRICO --- */
+/* --- HISTÓRICO MELHORADO --- */
 #listaReservas {
   list-style: none;
   padding: 0;
   margin-top: 1rem;
 }
 
-#listaReservas li {
-  background: #fdfdfd;
+/* Item de reserva moderno */
+.item-reserva {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  padding: 1.2rem;
   border-left: 5px solid var(--verde);
-  padding: 0.8rem;
-  border-radius: 10px;
-  margin-bottom: 0.6rem;
-  box-shadow: 0 2px 6px var(--sombra);
+  background: #fdfdfd;
+  margin-bottom: 1rem;
+  border-radius: 12px;
+  box-shadow: 0 3px 8px var(--sombra);
+  transition: all 0.3s ease;
+  gap: 1.5rem;
+}
+
+.item-reserva:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 6px 15px rgba(0,0,0,0.15);
+}
+
+.item-reserva[data-status="cancelada"] {
+  border-left-color: #e53935;
+  opacity: 0.8;
+  background: #fff5f5;
+}
+
+.item-reserva[data-status="aprovada"] {
+  border-left-color: var(--verde);
+  background: #f8fff8;
+}
+
+.item-reserva[data-status="pendente"] {
+  border-left-color: var(--laranja);
+  background: #fffaf0;
+}
+
+/* Informações da reserva */
+.reserva-info {
+  flex: 1;
+  min-width: 0;
+}
+
+.reserva-info strong {
+  color: var(--verde);
+  font-size: 1.2rem;
+  display: block;
+  margin-bottom: 0.4rem;
+}
+
+.reserva-data {
+  display: block;
+  color: #666;
+  font-size: 0.95rem;
+  margin-bottom: 0.4rem;
+  font-weight: 500;
+}
+
+.reserva-observacao {
+  display: block;
+  color: #777;
+  font-size: 0.9rem;
+  font-style: italic;
+  margin-top: 0.5rem;
+  padding: 0.5rem;
+  background: #f8f9fa;
+  border-radius: 6px;
+  border-left: 3px solid var(--laranja-claro);
+}
+
+/* Status da reserva */
+.reserva-status {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+  gap: 0.8rem;
+  min-width: 140px;
+}
+
+.status {
+  padding: 0.5rem 1rem;
+  border-radius: 25px;
+  font-size: 0.9rem;
+  font-weight: 600;
+  text-align: center;
+  white-space: nowrap;
+  min-width: 120px;
+}
+
+.status.aprovada {
+  background: var(--verde);
+  color: white;
+  box-shadow: 0 2px 4px rgba(46, 139, 87, 0.3);
+}
+
+.status.pendente {
+  background: var(--laranja);
+  color: white;
+  box-shadow: 0 2px 4px rgba(249, 115, 22, 0.3);
+}
+
+.status.cancelada {
+  background: #e53935;
+  color: white;
+  box-shadow: 0 2px 4px rgba(229, 57, 53, 0.3);
+}
+
+/* Botão de cancelar */
+.btn-cancelar {
+  background: none;
+  border: 2px solid #ff6b6b;
+  color: #ff6b6b;
+  cursor: pointer;
+  padding: 0.5rem 1rem;
+  border-radius: 8px;
+  font-size: 0.85rem;
+  font-weight: 600;
+  transition: all 0.3s ease;
+  min-width: 100px;
+}
+
+.btn-cancelar:hover {
+  background: #ff6b6b;
+  color: white;
+  transform: scale(1.05);
+  box-shadow: 0 3px 8px rgba(255, 107, 107, 0.3);
+}
+
+.btn-cancelar:active {
+  transform: scale(0.95);
+}
+
+/* Estado vazio */
+#listaReservas:empty::before {
+  content: "📝 Nenhum pedido realizado ainda. Faça seu primeiro pedido!";
+  display: block;
+  text-align: center;
+  color: #888;
+  font-style: italic;
+  padding: 3rem 2rem;
+  background: #f9f9f9;
+  border-radius: 12px;
+  border: 2px dashed #ddd;
+  font-size: 1.1rem;
+  margin: 1rem 0;
 }
 
 /* --- FOOTER --- */
 footer {
   text-align: center;
-  padding: 1rem;
-  margin-top: 2rem;
+  padding: 1.5rem;
+  margin-top: 3rem;
   border-top: 3px dashed var(--laranja);
   color: #777;
   background: var(--branco);
 }
 
-/* --- TOAST --- */
-.toast {
-  position: fixed;
-  bottom: 20px;
-  right: 20px;
-  background: var(--verde);
-  color: var(--branco);
-  padding: 0.8rem 1.2rem;
-  border-radius: 8px;
-  box-shadow: 0 2px 8px var(--sombra);
-  display: none;
+/* Adicionar ao CSS */
+.dashboard-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 1.5rem;
+    margin: 1.5rem 0;
+}
+
+.metrica-card {
+    background: linear-gradient(135deg, var(--branco) 0%, #f8f9fa 100%);
+    border: 2px solid var(--laranja-claro);
+    border-radius: 15px;
+    padding: 1.5rem;
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+    transition: transform 0.3s ease;
+}
+
+.metrica-card:hover {
+    transform: translateY(-5px);
+}
+
+
+.metrica-info h3 {
+    margin: 0 0 0.5rem 0;
+    color: var(--cinza);
+    font-size: 0.9rem;
+    font-weight: 600;
+}
+
+.metrica-valor {
+    font-size: 1.8rem;
+    font-weight: 700;
+    color: var(--verde);
+    display: block;
+}
+
+.metrica-variacao {
+    font-size: 0.8rem;
+    font-weight: 600;
+    padding: 0.2rem 0.5rem;
+    border-radius: 12px;
+}
+
+.metrica-variacao.positiva {
+    background: #d4edda;
+    color: #155724;
+}
+
+.metrica-variacao.negativa {
+    background: #f8d7da;
+    color: #721c24;
+}
+
+.dashboard-acoes {
+    margin-top: 2rem;
+    padding-top: 2rem;
+    border-top: 2px dashed var(--laranja-claro);
+}
+
+.acoes-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: 1rem;
+    margin-top: 1rem;
+}
+
+.acao-btn {
+    background: var(--branco);
+    border: 2px solid var(--verde);
+    color: var(--verde);
+    padding: 1rem;
+    text-align: center;
+    transition: all 0.3s ease;
+}
+
+.acao-btn:hover {
+    background: var(--verde);
+    color: var(--branco);
+    transform: scale(1.05);
+}
+
+/* Mostrar dashboard apenas para admins */
+body:not(.admin) #secDashboard {
+    display: none !important;
+}
+
+body.admin #secDashboard {
+    display: block !important;
 }
 
 /* ===========================
@@ -315,19 +544,23 @@ footer {
 #toast {
   position: fixed;
   left: 50%;
-  bottom: 24px;
+  bottom: 30px;
   transform: translateX(-50%) translateY(20px);
   background: var(--verde);
   color: var(--branco);
-  padding: 12px 22px;
-  border-radius: 10px;
+  padding: 14px 24px;
+  border-radius: 12px;
   font-weight: 600;
-  font-size: 0.95rem;
-  box-shadow: 0 4px 10px rgba(0,0,0,0.25);
+  font-size: 1rem;
+  box-shadow: 0 6px 20px rgba(0, 0, 0, 0.25);
   opacity: 0;
   pointer-events: none;
-  transition: opacity 0.28s ease, transform 0.28s ease;
+  transition: opacity 0.3s ease, transform 0.3s ease;
   z-index: 9999;
+  text-align: center;
+  min-width: 300px;
+  max-width: 90vw;
+  backdrop-filter: blur(10px);
 }
 
 #toast.visivel {
@@ -338,58 +571,137 @@ footer {
 
 /* Cores de feedback */
 #toast.ok {
-  background: linear-gradient(90deg, var(--laranja) 0%, var(--verde) 100%);
+  background: linear-gradient(135deg, var(--laranja) 0%, var(--verde) 100%);
   color: var(--branco);
 }
 
 #toast.warn {
   background: #ffb74d;
   color: #000;
+  border: 2px solid #ff9800;
 }
 
 #toast.err {
   background: #e53935;
   color: #fff;
+  border: 2px solid #c62828;
 }
 
-/* Responsividade */
-@media (max-width: 600px) {
-  #toast {
-    bottom: 15px;
+/* Grid para formulários */
+.grade.duas {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 1.2rem;
+}
+
+.grade.duas button {
+  grid-column: 1 / -1;
+  justify-self: start;
+  margin-top: 0.5rem;
+}
+
+/* --- RESPONSIVIDADE --- */
+@media (max-width: 768px) {
+  header .container {
+    flex-direction: column;
+    gap: 1rem;
+    text-align: center;
+  }
+  
+  .secaoHero {
+    flex-direction: column;
+  }
+  
+  .gradeEntidades {
+    grid-template-columns: 1fr;
+  }
+  
+  .acoesNav {
+    display: flex;
+    gap: 0.5rem;
+    flex-wrap: wrap;
+    justify-content: center;
+  }
+  
+  /* Responsividade para itens de reserva */
+  .item-reserva {
+    flex-direction: column;
+    align-items: stretch;
+    gap: 1rem;
+    padding: 1rem;
+  }
+  
+  .reserva-status {
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    width: 100%;
+    min-width: auto;
+  }
+  
+  .status {
+    min-width: 100px;
     font-size: 0.85rem;
-    padding: 10px 18px;
+    padding: 0.4rem 0.8rem;
   }
-}
-
-
-
-@media (max-width: 600px) {
-  .toast {
-    bottom: 15px;
-    right: 15px;
+  
+  .grade.duas {
+    grid-template-columns: 1fr;
+  }
+  
+  #toast {
+    min-width: 280px;
     font-size: 0.9rem;
-    padding: 10px 15px;
+    padding: 12px 20px;
+    bottom: 20px;
   }
 }
 
-#toast{
-  position: fixed;
-  left: 50%;
-  bottom: 24px;
-  transform: translateX(-50%) translateY(20px);
-  background:#222;
-  color:#fff;
-  padding:10px 14px;
-  border-radius:6px;
-  opacity:0;
-  pointer-events:none;
-  transition:opacity .28s ease, transform .28s ease;
-  z-index:9999;
+@media (max-width: 480px) {
+  .reserva-status {
+    flex-direction: column;
+    gap: 0.8rem;
+  }
+  
+  .btn-cancelar {
+    width: 100%;
+    text-align: center;
+  }
+  
+  .reserva-info strong {
+    font-size: 1.1rem;
+  }
+  
+  .reserva-observacao {
+    font-size: 0.85rem;
+  }
+  
+  main.container {
+    width: 95%;
+  }
 }
-#toast.visivel{
-  opacity:1;
-  transform: translateX(-50%) translateY(0);
-  pointer-events:auto;
+
+/* Animações */
+@keyframes slideIn {
+  from {
+    opacity: 0;
+    transform: translateY(15px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
 }
-#toast.warn{ background: #f0a000; color:#000; }
-#toast.err { background: #c62828; }
+
+.item-reserva {
+  animation: slideIn 0.4s ease-out;
+}
+
+/* Estados de foco para acessibilidade */
+.botao:focus-visible,
+input:focus-visible,
+select:focus-visible,
+.btn-cancelar:focus-visible {
+    outline: 3px solid var(--laranja);
+    outline-offset: 2px;
+}
